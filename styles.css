@@ -6,6 +6,22 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -24,11 +40,38 @@ nav .nav-links {
     text-decoration: none;
 }
 
+nav .nav-links:hover {
+    text-decoration: underline;
+}
+
 #hire {
     padding: 10px 30px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     border: none;
     background-color: #0074D9;
     border-radius: 35rem;
     color: #ffffff;
+    cursor: pointer;
+}
+
+#hire1 {
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border: 1px solid #0074D9;
+    background-color: transparent;
+    border-radius: 35rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    text-align: center;
+}
+
+.coloumn {
+    width: 70%;
 }
