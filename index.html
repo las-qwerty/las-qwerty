@@ -1,39 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/3292c3d689.js"
+      crossorigin="anonymous"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lawrence S.</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <style>
+      * {
+        font-family: "Roboto", sans-serif;
+      }
 
-<body>
-    <header>
-        <p class="logo" id="logo">Lawrence S.</p>
-        <nav>
-            <a href="home" class="nav-links">Home</a>
-            <a href="about" class="nav-links">About</a>
-            <a href="projects" class="nav-links">Projects</a>
-            <a href="contact" class="nav-links">Contact</a>
-        </nav>
-        <button class="hire" id="hire">Hire me</button>
-    </header>
+      body {
+        background: url(images/portfoliobg.png) no-repeat rgba(0, 0, 0, 0.8);
+        background-size: cover;
+        background-blend-mode: overlay;
+      }
 
-    <div class="section">
-        <div class="coloumn">
-            <h1>Hi, My name is Lawrence S. <br>I am a Front-End Web Developer </h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus quidem dolorem eius quaerat ducimus
-                nostrum ut voluptatibus neque odit facilis error quam maiores, assumenda ab a sapiente praesentium. A,
-                beatae?
-                Necessitatibus provident consequuntur repellat perspiciatis non distinctio molestias quod est! Quis
-                ipsum rem atque enim pariatur voluptate repudiandae cum inventore facere recusandae ab, iste dolores hic
-                fuga? Ut, rerum temporibus!</p>
-            <br>
-            <button type="button" class="hire" id="hire">About</button>
-            <button type="button" class="hire1" id="hire1">Download CV</button>
+      .btn {
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 2rem;
+      }
+
+      .btn:hover {
+        color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 2rem;
+      }
+
+      .btn {
+        color: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 2rem;
+      }
+
+      .nav-item {
+        font-weight: 500;
+      }
+
+      .nav-link {
+        display: block;
+        position: relative;
+        padding: 0.2em 0;
+      }
+
+      /* Fade in */
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.1em;
+        background-color: #fff;
+        opacity: 0;
+        transition: opacity 500ms, transform 500ms;
+      }
+
+      .nav-item .nav-link {
+        overflow: hidden;
+      }
+
+      .nav-item .nav-link::after {
+        opacity: 1;
+        transform: translate3d(-100%, 0, 0);
+      }
+
+      .nav-item .nav-link:hover::after,
+      .nav-item .nav-link:focus::after {
+        transform: translate3d(0, 0, 0);
+      }
+
+      @keyframes slideRight {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      .slide-right {
+        animation: slideRight 0.8s ease-out;
+        opacity: 0;
+      }
+
+      @keyframes popup {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .social-link {
+        display: inline-block;
+        animation: popup 0.5s ease-in-out infinite;
+      }
+
+      @media only screen and (max-width: 768px) {
+        .container-md {
+          margin-right: -20px;
+          overflow: hidden;
+        }
+
+        body {
+          height: 99vh;
+          overflow: hidden;
+        }
+
+        nav.navbar.navbar-expand-lg.d-flex.justify-content-between.px-5.pt-3 {
+          padding: 20px !important;
+        }
+
+        .container-lg {
+          margin-right: -20px;
+        }
+
+        .btn {
+          padding: 5px 35px !important;
+        }
+
+        button.navbar-toggler {
+          border: none !important;
+        }
+
+        .nav-link::after {
+          width: 18%;
+        }
+
+        .nav-item {
+          margin: 8px 0px;
+        }
+
+        h1 {
+            font-size: 4em !important;
+        }
+
+        span {
+            font-size: 2.5rem !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg d-flex justify-content-between px-5 pt-3">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span style="border: none"
+          ><i class="fa-solid fa-bars fa-sm" style="color: #ffffff"></i
+        ></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2">
+            <a class="nav-link" aria-current="page" href="#" style="color: #fff"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" aria-current="page" href="#" style="color: #fff"
+              >About</a
+            >
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link" aria-current="page" href="#" style="color: #fff"
+              >Portfolio</a
+            >
+          </li>
+        </ul>
+      </div>
+      <a
+        class="px-2"
+        style="color: #fff; text-decoration: none"
+        href="tel:9123456789"
+        ><i class="fa-solid fa-mobile"></i>&nbsp; +(63) 912-3456-789</a
+      >
+    </nav>
+
+    <div
+      class="container-fluid-md d-flex flex-column align-items-center justify-content-center"
+      style="height: 85vh">
+      <div class="container-md">
+        <h1
+          id="name"
+          style="
+            color: #fff;
+            font-size: 6em;
+            font-family: 'Lato', sans-serif !important;
+            font-weight: 700;
+            line-height: 0.8;
+            text-transform: uppercase;
+          ">
+          <span
+            id="name"
+            style="
+              font-size: 3.5rem;
+              font-weight: 300;
+              text-transform: uppercase;
+            "
+            >Lawrence</span
+          ><br />Soriano
+        </h1>
+        <p
+          id="title"
+          style="
+            color: #fff;
+            letter-spacing: 10px;
+            font-family: 'Lato', sans-serif !important;
+            font-size: 1.5rem;
+            font-weight: 100 !important;
+          ">
+          Web Developer
+        </p>
+        <button
+          id="cvButton"
+          class="btn px-5"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#myCv">
+          View CV
+        </button>
+        <button id="portfolioButton" class="btn px-5 mx-3" type="button">
+          Portfolio
+        </button>
+
+        <!-- modal for cvButton -->
+
+        <div
+          class="modal fade modal-xl modal-dialog-scrollable"
+          id="myCv"
+          tabindex="-1"
+          aria-labelledby="myCV"
+          aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="myCV">My CV</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img src="/images/Resume-1.png" title="My Curriculum Vitae" style="width: 100%; height: 100%;">
+                <img src="/images/Resume-2.png" title="My Curriculum Vitae" style="width: 100%; height: 100%;">
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <!--modal for cvButton end-->
+      </div>
     </div>
-</body>
 
+    <div class="container-lg">
+      <a class="mx-1 social-link" href="#"
+        ><i class="fa-brands fa-linkedin fa-xl" style="color: #ffffff"></i
+      ></a>
+      <!-- <a class="mx-1" href="#"><i class="fa-brands fa-facebook-f fa-xl" style="color: #ffffff;"></i></a> -->
+      <a class="mx-1 social-link" href="#"
+        ><i class="fa-brands fa-gitlab fa-xl" style="color: #ffffff"></i
+      ></a>
+      <a class="mx-1 social-link" href="#"
+        ><i class="fa-brands fa-github fa-xl" style="color: #ffffff"></i
+      ></a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        animateWithDelay("name", "slide-right", 100);
+        animateWithDelay("title", "slide-right", 100);
+        animateWithDelay("cvButton", "slide-right", 115);
+        animateWithDelay("portfolioButton", "slide-right", 115);
+      });
+
+      function animateWithDelay(elementId, animationClass, delay) {
+        const element = document.getElementById(elementId);
+        if (element) {
+          setTimeout(function () {
+            element.style.opacity = "1";
+            element.classList.add(animationClass);
+          }, delay);
+        }
+      }
+    </script>
+
+    <!-- BOOTSTRAP v5.3.2 -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"></script>
+  </body>
 </html>
